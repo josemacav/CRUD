@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Toasted from 'vue-toasted';
 import * as VueGoogleMaps from 'vue2-google-maps';
+import Vuetify from 'vuetify/lib';
 
 Vue.use(Toasted, {
   position: 'bottom-right',
@@ -17,6 +18,14 @@ Vue.use(VueGoogleMaps, {
 
 Vue.config.productionTip = false
 
+Vue.use(Vuetify)
+
 new Vue({
-  render: h => h(App),
+  vuetify: new Vuetify({
+    theme: { dark: true },
+  }),
+  data: () => ({
+    drawer: null,
+  }),
+  render: h => h(App)
 }).$mount('#app')
